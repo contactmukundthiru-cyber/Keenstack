@@ -1,0 +1,7 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cool-toned abstract panel">
+  <rect width="900" height="600" fill="#ECF2F7"/>
+  <rect x="60" y="60" width="780" height="480" rx="26" fill="#FFFFFF" stroke="#D9DEE2"/>
+  <path d="M120 360c80-50 160-50 240 0s160 50 240 0" stroke="#153CA8" stroke-width="8" fill="none" opacity="0.35"/>
+  <circle cx="230" cy="210" r="52" fill="#20C9A0" opacity="0.25"/>
+  <circle cx="660" cy="390" r="70" fill="#112245" opacity="0.16"/>
+</svg>

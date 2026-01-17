@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "title": "Driving Innovation With AI-Powered ServiceNow",
+    "subtitle": "KeenStack helps organizations simplify complexity and build workflow-driven systems that deliver measurable impact.",
+    "primaryCta": "Talk To An Expert",
+    "secondaryCta": "Explore Healthcare Apps"
+  },
+  "proof": [
+    "AI-enabled ServiceNow workflows",
+    "Built-in governance and change control",
+    "Healthcare-native accelerators"
+  ],
+  "valueProps": [
+    {
+      "title": "Enterprise Clarity",
+      "body": "Align strategy, people, and platform execution with a focused ServiceNow roadmap."
+    },
+    {
+      "title": "Workflow Velocity",
+      "body": "Accelerate delivery with reusable playbooks, integration patterns, and automation."
+    },
+    {
+      "title": "Operational Confidence",
+      "body": "Support, manage, and continuously optimize your ServiceNow investment."
+    }
+  ]
+}

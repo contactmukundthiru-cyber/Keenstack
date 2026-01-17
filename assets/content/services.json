@@ -1,0 +1,28 @@
+{
+  "pillars": [
+    {
+      "name": "Plan",
+      "for": "Leaders defining the ServiceNow roadmap and governance model.",
+      "includes": ["Roadmap and platform strategy", "AI readiness assessment", "Operating model design"],
+      "outcomes": "Clear priorities, investment alignment, and measurable transformation goals."
+    },
+    {
+      "name": "Build",
+      "for": "Teams implementing new workflows, apps, and integrations.",
+      "includes": ["Solution architecture", "ServiceNow implementation", "Data and integration enablement"],
+      "outcomes": "Faster launches with resilient, user-centered workflows."
+    },
+    {
+      "name": "Run",
+      "for": "Operations teams managing adoption, reliability, and change.",
+      "includes": ["Managed services", "Release management", "Platform support"],
+      "outcomes": "Stable operations, improved uptime, and consistent experiences."
+    },
+    {
+      "name": "Improve",
+      "for": "Organizations optimizing value and automation over time.",
+      "includes": ["Performance analytics", "Workflow optimization", "Continuous innovation"],
+      "outcomes": "Sustained value and a culture of continuous improvement."
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://keenstack.com/sitemap.xml

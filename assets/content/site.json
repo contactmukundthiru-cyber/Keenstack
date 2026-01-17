@@ -1,0 +1,31 @@
+{
+  "site": {
+    "name": "KeenStack",
+    "tagline": "ServiceNow-focused consulting partner",
+    "url": "https://keenstack.com",
+    "email": "hello@keenstack.com",
+    "phone": "+1 (000) 000-0000",
+    "address": "Remote-first, USA"
+  },
+  "nav": [
+    {"label": "About", "href": "/about/"},
+    {"label": "Services", "href": "/services/"},
+    {"label": "Industries", "href": "/industries/"},
+    {"label": "Products", "href": "/products/"},
+    {"label": "Partners", "href": "/partners/"},
+    {"label": "News", "href": "/news/"},
+    {"label": "Careers", "href": "/careers/"},
+    {"label": "Contact", "href": "/contact/"}
+  ],
+  "partners": [
+    "Tenon",
+    "GuardRails by Dyna",
+    "Quality Clouds",
+    "3CLogic",
+    "Accessium"
+  ],
+  "social": [
+    {"label": "LinkedIn", "href": "https://www.linkedin.com"},
+    {"label": "YouTube", "href": "https://www.youtube.com"}
+  ]
+}

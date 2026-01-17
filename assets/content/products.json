@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "name": "AI-Powered Referral Management",
+      "problem": "Manual referral workflows delay care coordination and reduce visibility.",
+      "howItWorks": "Built natively on ServiceNow, the app orchestrates referral intake, routing, and status updates.",
+      "capabilities": ["Intelligent intake and triage", "Automated task routing", "Referral status dashboards"],
+      "audience": "Provider networks, health systems, and care coordination teams."
+    },
+    {
+      "name": "AI-Powered Appeals & Grievances",
+      "problem": "Appeals and grievance processes demand rigorous tracking and timely resolution.",
+      "howItWorks": "ServiceNow-native workflows coordinate intake, documentation, and resolution across teams.",
+      "capabilities": ["Guided intake", "Evidence tracking", "Resolution reporting"],
+      "audience": "Payers, health plans, and compliance-focused operations."
+    }
+  ]
+}

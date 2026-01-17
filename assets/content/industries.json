@@ -1,0 +1,14 @@
+{
+  "industries": [
+    {
+      "name": "Healthcare",
+      "painPoints": ["Referral and authorization complexity", "Appeals and grievances workflows", "Cross-team visibility"],
+      "support": "KeenStack delivers AI-powered ServiceNow apps and advisory services for healthcare operations."
+    },
+    {
+      "name": "Public Sector",
+      "painPoints": ["Legacy process modernization", "Constituent service transparency", "Compliance-ready workflows"],
+      "support": "KeenStack streamlines service delivery with secure, auditable ServiceNow workflows."
+    }
+  ]
+}
