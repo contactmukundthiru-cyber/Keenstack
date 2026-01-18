@@ -9,11 +9,11 @@
   <meta property="og:description" content="Talk to KeenStack about ServiceNow consulting and healthcare workflows.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://keenstack.com/contact/">
-  <meta property="og:image" content="../assets/img/abstract-panel.svg">
+  <meta property="og:image" content="../assets/img/contact-hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact KeenStack">
   <meta name="twitter:description" content="Start a conversation with KeenStack.">
-  <meta name="twitter:image" content="../assets/img/abstract-panel.svg">
+  <meta name="twitter:image" content="../assets/img/contact-hero.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="navbar" role="banner">
     <div class="container nav-inner">
-      <a class="logo" href="../index.html"><img src="../assets/img/keenstack-logo.svg" alt="KeenStack"></a>
+      <a class="logo" href="../index.html"><img src="../assets/img/keenstack-logo.svg" alt="KeenStack" decoding="async" loading="eager"></a>
       <nav aria-label="Primary">
         <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">Menu</button>
         <div class="nav-links" id="primary-nav" data-nav-links>
@@ -57,14 +57,14 @@
         <div>
           <p class="eyebrow">Contact</p>
           <h1>Let’s plan your next ServiceNow milestone.</h1>
-          <p class="measure">Share your goals and we will coordinate the right experts to support your workflow journey.</p>
+          <p class="lead measure">Share your goals and we will coordinate the right experts to support your workflow journey.</p>
           <div class="cta-row">
             <a class="button primary" href="mailto:hello@keenstack.com">Email KeenStack</a>
             <a class="button secondary" href="#form">Complete The Form</a>
           </div>
         </div>
         <div class="hero-card">
-          <img src="../assets/img/abstract-panel.svg" alt="Contact visual">
+          <img src="../assets/img/contact-hero.jpg" alt="Contact visual" decoding="async" loading="eager" fetchpriority="high" width="300" height="200">
         </div>
       </div>
     </section>
@@ -80,34 +80,35 @@
             <a class="button secondary" href="#">Schedule A Call</a>
           </div>
         </div>
-        <form class="card" method="post" action="#">
+        <form class="card form-card" method="post" action="#" novalidate>
           <div class="form-grid">
             <div>
-              <label for="name">Full Name</label>
-              <input id="name" name="name" type="text" required>
+              <label for="name">Full Name <span aria-label="required">*</span></label>
+              <input id="name" name="name" type="text" required aria-required="true" autocomplete="name">
             </div>
             <div>
-              <label for="email">Work Email</label>
-              <input id="email" name="email" type="email" required>
+              <label for="email">Work Email <span aria-label="required">*</span></label>
+              <input id="email" name="email" type="email" required aria-required="true" autocomplete="email">
             </div>
             <div>
               <label for="company">Company</label>
-              <input id="company" name="company" type="text">
+              <input id="company" name="company" type="text" autocomplete="organization">
             </div>
             <div>
               <label for="interest">Area of Interest</label>
-              <select id="interest" name="interest">
-                <option>ServiceNow Strategy</option>
-                <option>Implementation</option>
-                <option>Managed Services</option>
-                <option>Healthcare Products</option>
+              <select id="interest" name="interest" aria-label="Select area of interest">
+                <option value="">Please select...</option>
+                <option value="strategy">ServiceNow Strategy</option>
+                <option value="implementation">Implementation</option>
+                <option value="managed-services">Managed Services</option>
+                <option value="healthcare-products">Healthcare Products</option>
               </select>
             </div>
             <div>
               <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5"></textarea>
+              <textarea id="message" name="message" rows="5" aria-label="Your message"></textarea>
             </div>
-            <button class="button primary" type="submit">Submit Inquiry</button>
+            <button class="button primary" type="submit" aria-label="Submit contact form">Submit Inquiry</button>
           </div>
         </form>
       </div>
@@ -131,7 +132,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="logo logo-footer"><img src="../assets/img/keenstack-logo-white.svg" alt="KeenStack"></div>
+          <div class="logo logo-footer"><img src="../assets/img/keenstack-logo-white.svg" alt="KeenStack" decoding="async" loading="eager"></div>
           <p class="muted">ServiceNow-focused consulting partner for AI-powered workflows.</p>
         </div>
         <div>
@@ -153,7 +154,7 @@
           <a href="../partners/">Partners</a>
         </div>
       </div>
-      <div class="footer-note">© 2024 KeenStack. All rights reserved.</div>
+      <div class="footer-note">© 2025 KeenStack. All rights reserved.</div>
     </div>
   </footer>
 

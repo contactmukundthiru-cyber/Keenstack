@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#112245">
   <title>KeenStack | AI-Powered ServiceNow Consulting</title>
   <meta name="description" content="KeenStack is a ServiceNow-focused consulting partner helping organizations implement, optimize, and manage AI-powered workflows.">
   <meta property="og:title" content="KeenStack | AI-Powered ServiceNow Consulting">
   <meta property="og:description" content="Drive innovation with AI-powered ServiceNow strategy, implementation, and optimization.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://keenstack.com/">
-  <meta property="og:image" content="assets/img/abstract-tech.svg">
+  <meta property="og:image" content="assets/img/hero-home.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="KeenStack | AI-Powered ServiceNow Consulting">
   <meta name="twitter:description" content="ServiceNow consulting, workflow automation, and healthcare accelerators.">
-  <meta name="twitter:image" content="assets/img/abstract-tech.svg">
+  <meta name="twitter:image" content="assets/img/hero-home.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
@@ -25,8 +26,19 @@
     "@type": "Organization",
     "name": "KeenStack",
     "url": "https://keenstack.com",
+    "logo": "https://keenstack.com/assets/img/keenstack-logo.svg",
     "description": "ServiceNow-focused consulting partner helping organizations implement, optimize, and manage AI-powered workflows.",
-    "sameAs": ["https://www.linkedin.com", "https://www.youtube.com"]
+    "email": "hello@keenstack.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US"
+    },
+    "sameAs": ["https://www.linkedin.com", "https://www.youtube.com"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "email": "hello@keenstack.com"
+    }
   }
   </script>
 </head>
@@ -34,37 +46,39 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="navbar" role="banner">
     <div class="container nav-inner">
-      <a class="logo" href="index.html"><img src="assets/img/keenstack-logo.svg" alt="KeenStack"></a>
+      <a class="logo" href="index.html"><img src="assets/img/keenstack-logo.svg" alt="KeenStack" width="120" height="32" decoding="async" loading="eager"></a>
       <nav aria-label="Primary">
-        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">Menu</button>
-        <div class="nav-links" id="primary-nav" data-nav-links>
-          <a href="about/">About</a>
-          <a href="services/">Services</a>
-          <a href="industries/">Industries</a>
-          <a href="products/">Products</a>
-          <a href="partners/">Partners</a>
-          <a href="news/">News</a>
-          <a href="careers/">Careers</a>
-          <a href="contact/" class="button primary">Talk To An Expert</a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+          <span aria-hidden="true">Menu</span>
+        </button>
+        <div class="nav-links" id="primary-nav" data-nav-links role="menu">
+          <a href="about/" role="menuitem">About</a>
+          <a href="services/" role="menuitem">Services</a>
+          <a href="industries/" role="menuitem">Industries</a>
+          <a href="products/" role="menuitem">Products</a>
+          <a href="partners/" role="menuitem">Partners</a>
+          <a href="news/" role="menuitem">News</a>
+          <a href="careers/" role="menuitem">Careers</a>
+          <a href="contact/" class="button primary" role="menuitem">Talk To An Expert</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero section">
       <div class="container hero-grid">
         <div>
           <div class="hero-badge">AI-Powered ServiceNow Partner</div>
           <h1>Driving Innovation With AI-Powered ServiceNow</h1>
-          <p class="measure">KeenStack helps organizations simplify complexity and build workflow-driven systems that keep work moving.</p>
+          <p class="lead measure">KeenStack helps organizations simplify complexity and build workflow-driven systems that keep work moving. We combine deep technical expertise with a people-first approach to transform challenges into opportunities.</p>
           <div class="cta-row">
             <a class="button primary" href="contact/">Talk To An Expert</a>
             <a class="button secondary" href="products/">Explore Healthcare Apps</a>
           </div>
         </div>
         <div class="hero-card hero-visual">
-          <img src="assets/img/abstract-tech.svg" alt="Cool-toned abstract technology illustration">
+          <img src="assets/img/hero-home.png" alt="KeenStack platform visualization" decoding="async" loading="eager" fetchpriority="high" width="768" height="581">
         </div>
       </div>
     </section>
@@ -75,20 +89,20 @@
           <div>
             <p class="eyebrow">Proof of Capability</p>
             <h2>Enterprise workflows designed to keep teams aligned.</h2>
-            <p class="measure">We focus on ServiceNow strategy, implementation, and managed services with AI enablement built in from day one.</p>
+            <p class="lead measure">We focus on ServiceNow strategy, implementation, and managed services with AI enablement built in from day one.</p>
           </div>
           <div class="stats">
             <div class="stat card neumorphic">
-              <div class="card-title"><span class="icon-bubble">AI</span>Workflow Automation</div>
-              <p>ServiceNow-native automations designed for speed, governance, and scale.</p>
+              <div class="card-title"><img src="assets/img/icon-light.svg" alt="" decoding="async" loading="lazy">600+ Certifications</div>
+              <p>Our team holds 600+ ServiceNow certifications and accreditations across AI, platform capabilities, and industry suites.</p>
             </div>
             <div class="stat card neumorphic">
-              <div class="card-title"><span class="icon-bubble">HX</span>Healthcare Expertise</div>
-              <p>Purpose-built applications for referral management and appeals & grievances.</p>
+              <div class="card-title"><img src="assets/img/icon-monitor.svg" alt="" decoding="async" loading="lazy">70% Efficiency Gain</div>
+              <p>We achieve up to 70% time savings using ServiceNow's Now Assist, accelerating delivery and reducing manual effort.</p>
             </div>
             <div class="stat card neumorphic">
-              <div class="card-title"><span class="icon-bubble">CX</span>Client Experience</div>
-              <p>Collaborative delivery teams focused on accountability and momentum.</p>
+              <div class="card-title"><img src="assets/img/icon-gear.svg" alt="" decoding="async" loading="lazy">Award-Winning Partner</div>
+              <p>Recognized as 2025 Emerging Partner of the Year by Dyna Software and 2025 AZ Business Angel of the Year.</p>
             </div>
           </div>
         </div>
@@ -160,7 +174,7 @@
         <div class="text-center section-intro">
           <p class="eyebrow">Healthcare Apps</p>
           <h2>AI-powered products built on ServiceNow.</h2>
-          <p class="measure">Pre-configured applications that accelerate healthcare operations without sacrificing governance.</p>
+          <p class="measure">Pre-configured applications available on the ServiceNow Store that accelerate healthcare operations without sacrificing governance.</p>
         </div>
         <div class="grid two spacer-md">
           <div class="card">
@@ -188,13 +202,17 @@
         <div class="text-center section-intro">
           <p class="eyebrow">Partner Ecosystem</p>
           <h2>Built with trusted technology partners.</h2>
+          <p class="measure">Strategic partnerships that extend ServiceNow value across CRM, governance, AI, and healthcare operations.</p>
         </div>
         <div class="logo-wall spacer-md">
-          <div class="logo-tile">Tenon</div>
-          <div class="logo-tile">GuardRails by Dyna</div>
-          <div class="logo-tile">Quality Clouds</div>
-          <div class="logo-tile">3CLogic</div>
-          <div class="logo-tile">Accessium</div>
+          <div class="logo-tile"><img src="assets/img/partner-tenon.png" alt="Tenon logo" decoding="async" loading="lazy" width="324" height="75"></div>
+          <div class="logo-tile"><img src="assets/img/partner-dyna.png" alt="GuardRails by Dyna logo" decoding="async" loading="lazy" width="324" height="75"></div>
+          <div class="logo-tile"><img src="assets/img/partner-quality-clouds.png" alt="Quality Clouds logo" decoding="async" loading="lazy" width="324" height="75"></div>
+          <div class="logo-tile"><img src="assets/img/partner-3clogic.png" alt="3CLogic logo" decoding="async" loading="lazy" width="324" height="75"></div>
+          <div class="logo-tile"><img src="assets/img/partner-accessium.png" alt="Accessium logo" decoding="async" loading="lazy" width="324" height="75"></div>
+        </div>
+        <div class="text-center spacer-md">
+          <p class="muted" style="font-size: 0.9rem;">Also available on <strong>AWS Marketplace</strong> and certified as a <strong>ServiceNow Service Provider Partner</strong></p>
         </div>
       </div>
     </section>
@@ -217,14 +235,15 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="logo logo-footer"><img src="assets/img/keenstack-logo-white.svg" alt="KeenStack"></div>
-          <p class="muted">ServiceNow-focused consulting partner for AI-powered workflows.</p>
+          <div class="logo logo-footer"><img src="assets/img/keenstack-logo-white.svg" alt="KeenStack" width="120" height="28" decoding="async" loading="eager"></div>
+          <p class="muted">ServiceNow-focused consulting partner for AI-powered workflows. Based in Chandler, Arizona.</p>
         </div>
         <div>
           <h4>Company</h4>
           <a href="about/">About</a><br>
           <a href="careers/">Careers</a><br>
-          <a href="news/">News</a>
+          <a href="news/">News</a><br>
+          <a href="https://www.linkedin.com/company/keenstack/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
         <div>
           <h4>Services</h4>
@@ -239,7 +258,7 @@
           <a href="partners/">Partners</a>
         </div>
       </div>
-      <div class="footer-note">© 2024 KeenStack. All rights reserved.</div>
+      <div class="footer-note">© 2025 KeenStack. All rights reserved. | 3075 W Ray Rd Suite #139, Chandler, AZ 85226</div>
     </div>
   </footer>
 
