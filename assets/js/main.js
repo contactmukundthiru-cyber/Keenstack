@@ -116,7 +116,7 @@
     });
   });
 
-  // Scroll reveal removed to avoid hidden content before JS hydration
+  // Keep motion minimal to preserve readability and reduce jank.
 
   // Lazy load images
   if ('loading' in HTMLImageElement.prototype) {

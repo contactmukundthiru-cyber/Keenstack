@@ -33,14 +33,42 @@
   </header>
 
   <main id="main">
-    <section class="hero section">
+    <section class="hero section scroll-anim">
       <div class="container text-center">
-        <p class="eyebrow">404</p>
+        <!-- Abstract 404 SVG -->
+        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 32px; display: block;">
+          <circle cx="100" cy="100" r="90" stroke="#E2E6EA" stroke-width="4" stroke-dasharray="10 10" opacity="0.5">
+            <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="60s" repeatCount="indefinite"/>
+          </circle>
+          <path d="M60 100L140 100" stroke="#112245" stroke-width="8" stroke-linecap="round" />
+          <path d="M100 60L100 140" stroke="#112245" stroke-width="8" stroke-linecap="round">
+            <animateTransform attributeName="transform" type="rotate" values="0 100 100; 45 100 100" dur="1s" fill="freeze" calcMode="spline" keySplines="0.25 1 0.5 1" />
+          </path>
+          <circle cx="100" cy="100" r="12" fill="#20C9A0">
+             <animate attributeName="r" values="12;16;12" dur="3s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+
+        <p class="eyebrow">404 - Page Not Found</p>
         <h1>We could not find that page.</h1>
-        <p>Return to the homepage or explore our services.</p>
-        <div class="cta-row">
-          <a class="button primary" href="index.html">Go To Home</a>
-          <a class="button secondary" href="services/">View Services</a>
+        <p class="lead measure" style="margin-left: auto; margin-right: auto;">The page you're looking for may have been moved, deleted, or doesn't exist. Let's get you back on track.</p>
+        <div class="grid three spacer-md" style="max-width: 600px; margin: 32px auto;">
+          <div class="card">
+            <h3>Home</h3>
+            <a class="button secondary" href="index.html">Go Home</a>
+          </div>
+          <div class="card">
+            <h3>Services</h3>
+            <a class="button secondary" href="services/">View Services</a>
+          </div>
+          <div class="card">
+            <h3>Contact</h3>
+            <a class="button secondary" href="contact/">Get In Touch</a>
+          </div>
+        </div>
+        <div class="cta-row spacer-md">
+          <a class="button primary" href="index.html">Return to Homepage</a>
+          <a class="button secondary" href="contact/">Contact Support</a>
         </div>
       </div>
     </section>

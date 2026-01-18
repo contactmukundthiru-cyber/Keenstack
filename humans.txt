@@ -1,0 +1,14 @@
+# Human.txt
+# The humans responsible & technology colophon
+
+# TEAM
+  Developer: KeenStack Intern
+  Design: KeenStack Design Team
+
+# TECHNOLOGY
+  HTML5, CSS3, Vanilla JS
+  Server: Apache/Nginx
+  Tools: VS Code, Git
+
+# THANKS
+  To the open source community.
