@@ -3,41 +3,76 @@
 
   document.documentElement.classList.add('has-js');
 
+  var prefersReducedMotion = false;
+  try {
+    prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  } catch (e) {
+    prefersReducedMotion = false;
+  }
+
   // Navigation toggle
   var navToggle = document.querySelector('[data-nav-toggle]');
   var navLinks = document.querySelector('[data-nav-links]');
   var navbar = document.querySelector('.navbar');
-  
+
+  function isNavOpen() {
+    return !!(navLinks && navLinks.classList.contains('open'));
+  }
+
+  function closeNav(options) {
+    if (!navLinks || !navToggle) return;
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    if (options && options.returnFocus) {
+      navToggle.focus();
+    }
+  }
+
+  function openNav() {
+    if (!navLinks || !navToggle) return;
+    navLinks.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    var firstLink = navLinks.querySelector('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+    if (firstLink) {
+      firstLink.focus();
+    }
+  }
+
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', function () {
-      var isOpen = navLinks.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      
-      // Close menu when clicking outside
-      if (isOpen) {
-        document.addEventListener('click', function closeMenu(e) {
-          if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
-            navLinks.classList.remove('open');
-            navToggle.setAttribute('aria-expanded', 'false');
-            document.removeEventListener('click', closeMenu);
-          }
-        });
+      if (isNavOpen()) {
+        closeNav({ returnFocus: true });
+      } else {
+        openNav();
+      }
+    });
+
+    // Close menu when clicking a nav link (mobile UX)
+    navLinks.addEventListener('click', function (e) {
+      var link = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (link && isNavOpen()) {
+        closeNav({ returnFocus: false });
+      }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function (e) {
+      if (!isNavOpen()) return;
+      if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+        closeNav({ returnFocus: false });
       }
     });
 
     // Close menu on escape key
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
-        navLinks.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.focus();
+      if (e.key === 'Escape' && isNavOpen()) {
+        closeNav({ returnFocus: true });
       }
     });
   }
 
   // Navbar scroll effect
   if (navbar) {
-    var lastScroll = 0;
     window.addEventListener('scroll', function () {
       var currentScroll = window.pageYOffset;
       if (currentScroll > 50) {
@@ -45,23 +80,37 @@
       } else {
         navbar.classList.remove('scrolled');
       }
-      lastScroll = currentScroll;
-    });
+    }, { passive: true });
   }
 
   // Set active navigation link
   if (navLinks) {
     var links = navLinks.querySelectorAll('a[href]');
-    var currentPath = window.location.pathname.replace(/index\.html$/, '');
+    var currentPath = normalizePath(window.location.pathname);
     links.forEach(function (link) {
       var href = link.getAttribute('href');
       if (!href || href.indexOf('#') === 0) return;
-      var url = new URL(href, window.location.origin + window.location.pathname);
-      var linkPath = url.pathname.replace(/index\.html$/, '');
-      if (linkPath === currentPath || (currentPath === '/' && linkPath === '')) {
-        link.setAttribute('aria-current', 'page');
+      try {
+        var url = new URL(href, window.location.href);
+        var linkPath = normalizePath(url.pathname);
+        if (linkPath === currentPath) {
+          link.setAttribute('aria-current', 'page');
+        }
+      } catch (e) {
+        // ignore invalid URLs
       }
     });
+  }
+
+  function normalizePath(pathname) {
+    var path = (pathname || '').replace(/index\.html$/, '');
+    // Ensure trailing slash for directory-like paths (except root)
+    if (path.length > 1 && path.charAt(path.length - 1) !== '/') {
+      path = path + '/';
+    }
+    // Root should be "/"
+    if (path === '') return '/';
+    return path;
   }
 
   // FAQ accordion
@@ -100,19 +149,28 @@
       event.preventDefault();
       
       // Close mobile menu if open
-      if (navLinks && navLinks.classList.contains('open')) {
-        navLinks.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
+      if (isNavOpen()) {
+        closeNav({ returnFocus: false });
       }
-      
-      var headerOffset = 80;
+
+      var headerOffset = navbar ? (navbar.offsetHeight + 16) : 80;
       var elementPosition = target.getBoundingClientRect().top;
       var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
       });
+
+      // Move focus for keyboard / screen reader users
+      try {
+        if (!target.hasAttribute('tabindex')) {
+          target.setAttribute('tabindex', '-1');
+        }
+        target.focus({ preventScroll: true });
+      } catch (e) {
+        // ignore
+      }
     });
   });
 
@@ -129,7 +187,7 @@
         img.classList.add('loaded');
       }
     });
-  } else {
+  } else if ('IntersectionObserver' in window) {
     // Fallback for browsers that don't support native lazy loading
     var imageObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -195,20 +253,31 @@
   function validateField(field) {
     var isValid = field.validity.valid;
     field.classList.toggle('error', !isValid);
+    field.setAttribute('aria-invalid', isValid ? 'false' : 'true');
     
     // Remove existing error message
-    var existingError = field.parentElement.querySelector('.error-message');
+    var parent = field.parentElement;
+    if (!parent) return isValid;
+
+    var existingError = parent.querySelector('.error-message');
     if (existingError) {
       existingError.remove();
+    }
+    if (field.hasAttribute('aria-describedby')) {
+      field.removeAttribute('aria-describedby');
     }
     
     // Add error message if invalid
     if (!isValid && field.validationMessage) {
       var errorMsg = document.createElement('span');
       errorMsg.className = 'error-message';
+      errorMsg.setAttribute('role', 'alert');
+      errorMsg.setAttribute('aria-live', 'polite');
+      var errorId = (field.id ? field.id : ('field-' + Math.random().toString(16).slice(2))) + '-error';
+      errorMsg.id = errorId;
       errorMsg.textContent = field.validationMessage;
-      errorMsg.style.cssText = 'display: block; color: #e74c3c; font-size: 0.85rem; margin-top: 4px;';
-      field.parentElement.appendChild(errorMsg);
+      parent.appendChild(errorMsg);
+      field.setAttribute('aria-describedby', errorId);
     }
     
     return isValid;
@@ -217,6 +286,8 @@
   // Add loading attribute to images below the fold
   document.addEventListener('DOMContentLoaded', function () {
     var images = document.querySelectorAll('img:not([loading])');
+    if (!('IntersectionObserver' in window)) return;
+
     var imageObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {

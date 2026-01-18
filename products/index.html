@@ -3,20 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#112245">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <title>Products | KeenStack</title>
   <meta name="description" content="ServiceNow-native healthcare applications for referral management and appeals workflows.">
   <meta property="og:title" content="KeenStack Products">
   <meta property="og:description" content="AI-powered healthcare applications built on ServiceNow.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://keenstack.com/products/">
-  <meta property="og:image" content="../assets/img/laptop-screenshot-lg.png">
+  <link rel="canonical" href="https://keenstack.com/products/">
+  <meta property="og:image" content="https://keenstack.com/assets/img/laptop-screenshot-lg.png">
+  <meta property="og:image:alt" content="KeenStack product laptop screenshot">
+  <meta property="og:site_name" content="KeenStack">
+  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="KeenStack Products">
   <meta name="twitter:description" content="AI-powered healthcare ServiceNow apps.">
-  <meta name="twitter:image" content="../assets/img/laptop-screenshot-lg.png">
+  <meta name="twitter:image" content="https://keenstack.com/assets/img/laptop-screenshot-lg.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="../assets/css/styles.css" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../assets/css/styles.css">
   <link rel="icon" href="../assets/img/keenstack-logo.svg">
   <script type="application/ld+json">
@@ -33,24 +42,26 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="navbar" role="banner">
     <div class="container nav-inner">
-      <a class="logo" href="../index.html"><img src="../assets/img/keenstack-logo.svg" alt="KeenStack" decoding="async" loading="eager"></a>
+      <a class="logo" href="../index.html"><img src="../assets/img/keenstack-logo.svg" alt="KeenStack" width="120" height="32" decoding="async" loading="eager"></a>
       <nav aria-label="Primary">
-        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">Menu</button>
-        <div class="nav-links" id="primary-nav" data-nav-links>
-          <a href="../about/">About</a>
-          <a href="../services/">Services</a>
-          <a href="../industries/">Industries</a>
-          <a href="../products/">Products</a>
-          <a href="../partners/">Partners</a>
-          <a href="../news/">News</a>
-          <a href="../careers/">Careers</a>
-          <a href="../contact/" class="button primary">Talk To An Expert</a>
-        </div>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+          <span aria-hidden="true">Menu</span>
+        </button>
+        <ul class="nav-links" id="primary-nav" data-nav-links>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../services/">Services</a></li>
+          <li><a href="../industries/">Industries</a></li>
+          <li><a href="../products/">Products</a></li>
+          <li><a href="../partners/">Partners</a></li>
+          <li><a href="../news/">News</a></li>
+          <li><a href="../careers/">Careers</a></li>
+          <li><a href="../contact/" class="button primary">Talk To An Expert</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero section">
       <div class="container hero-grid">
         <div>
@@ -123,27 +134,33 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="logo logo-footer"><img src="../assets/img/keenstack-logo-white.svg" alt="KeenStack" decoding="async" loading="eager"></div>
+          <div class="logo logo-footer"><img src="../assets/img/keenstack-logo-white.svg" alt="KeenStack" width="120" height="28" decoding="async" loading="eager"></div>
           <p class="muted">ServiceNow-focused consulting partner for AI-powered workflows.</p>
         </div>
         <div>
           <h4>Company</h4>
-          <a href="../about/">About</a><br>
-          <a href="../careers/">Careers</a><br>
-          <a href="../news/">News</a>
+          <ul class="footer-links">
+            <li><a href="../about/">About</a></li>
+            <li><a href="../careers/">Careers</a></li>
+            <li><a href="../news/">News</a></li>
+          </ul>
         </div>
         <div>
           <h4>Services</h4>
-          <a href="../services/">Plan</a><br>
-          <a href="../services/">Build</a><br>
-          <a href="../services/">Run</a><br>
-          <a href="../services/">Improve</a>
+          <ul class="footer-links">
+            <li><a href="../services/">Plan</a></li>
+            <li><a href="../services/">Build</a></li>
+            <li><a href="../services/">Run</a></li>
+            <li><a href="../services/">Improve</a></li>
+          </ul>
         </div>
         <div>
           <h4>Contact</h4>
-          <a href="../contact/">Contact</a><br>
-          <a href="mailto:hello@keenstack.com">hello@keenstack.com</a><br>
-          <a href="../partners/">Partners</a>
+          <ul class="footer-links">
+            <li><a href="../contact/">Contact</a></li>
+            <li><a href="mailto:hello@keenstack.com">hello@keenstack.com</a></li>
+            <li><a href="../partners/">Partners</a></li>
+          </ul>
         </div>
       </div>
       <div class="footer-note">© 2024 KeenStack. All rights reserved.</div>

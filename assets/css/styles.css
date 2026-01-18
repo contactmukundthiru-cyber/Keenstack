@@ -91,6 +91,12 @@ body {
   html {
     scroll-behavior: auto;
   }
+
+  /* Disable SVG SMIL animations */
+  svg animate,
+  svg animateTransform {
+    display: none !important;
+  }
 }
 
 img {
@@ -113,11 +119,15 @@ img {
 
 /* Lazy loading support */
 img[loading="lazy"] {
+  opacity: 1;
+}
+
+.has-js img[loading="lazy"] {
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-img[loading="lazy"].loaded {
+.has-js img[loading="lazy"].loaded {
   opacity: 1;
 }
 
@@ -334,6 +344,9 @@ p {
   align-items: center;
   gap: 16px;
   font-size: 0.95rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-links a {
@@ -676,6 +689,7 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 18px;
+  margin-top: var(--space-4);
 }
 
 .stat {
@@ -734,6 +748,18 @@ p {
 .footer-grid a:hover {
   color: var(--keen-green);
   opacity: 1;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.footer-links a {
+  margin-bottom: 0;
 }
 
 .footer-note {
@@ -872,9 +898,10 @@ label span[aria-label="required"] {
   background: rgba(21, 60, 168, 0.1);
   color: var(--code-blue);
   border-radius: 999px;
-  padding: 6px 10px;
+  padding: 6px 12px;
   font-size: 0.8rem;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .faq-item {
@@ -1135,6 +1162,7 @@ label span[aria-label="required"] {
     right: 20px;
     top: 72px;
     flex-direction: column;
+    align-items: stretch;
     background: var(--white);
     padding: 18px;
     border-radius: var(--radius-md);
@@ -1152,6 +1180,10 @@ label span[aria-label="required"] {
     opacity: 1;
     transform: translateY(0) scale(1);
     transition: opacity var(--transition-base), transform var(--transition-base);
+  }
+
+  .nav-links li {
+    width: 100%;
   }
 
   .nav-links a {
@@ -1327,33 +1359,11 @@ a[href*="facebook.com"]:hover {
   opacity: 0.8;
 }
 
-/* Enhanced badge styles */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(21, 60, 168, 0.1);
-  color: var(--code-blue);
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
 /* Enhanced CTA band */
 .cta-band p.lead {
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   line-height: 1.7;
   margin-bottom: 24px;
-}
-
-/* Better spacing for stats */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-  margin-top: var(--space-4);
 }
 
 .grid > .card,

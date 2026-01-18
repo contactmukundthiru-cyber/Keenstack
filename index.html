@@ -12,6 +12,7 @@
   <meta property="og:description" content="AI-powered ServiceNow strategy, implementation, and optimization.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://keenstack.com/">
+  <link rel="canonical" href="https://keenstack.com/">
   <meta property="og:image" content="https://keenstack.com/assets/img/hero-home.png">
   <meta property="og:image:width" content="768">
   <meta property="og:image:height" content="581">
@@ -21,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="KeenStack | AI-Powered ServiceNow Consulting">
   <meta name="twitter:description" content="ServiceNow consulting, workflow automation, and healthcare applications.">
-  <meta name="twitter:image" content="assets/img/hero-home.png">
+  <meta name="twitter:image" content="https://keenstack.com/assets/img/hero-home.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="assets/css/styles.css" as="style">
@@ -54,16 +55,16 @@
         <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
           <span aria-hidden="true">Menu</span>
         </button>
-        <div class="nav-links" id="primary-nav" data-nav-links role="menu">
-          <a href="about/" role="menuitem">About</a>
-          <a href="services/" role="menuitem">Services</a>
-          <a href="industries/" role="menuitem">Industries</a>
-          <a href="products/" role="menuitem">Products</a>
-          <a href="partners/" role="menuitem">Partners</a>
-          <a href="news/" role="menuitem">News</a>
-          <a href="careers/" role="menuitem">Careers</a>
-          <a href="contact/" class="button primary" role="menuitem">Talk To An Expert</a>
-        </div>
+        <ul class="nav-links" id="primary-nav" data-nav-links>
+          <li><a href="about/">About</a></li>
+          <li><a href="services/">Services</a></li>
+          <li><a href="industries/">Industries</a></li>
+          <li><a href="products/">Products</a></li>
+          <li><a href="partners/">Partners</a></li>
+          <li><a href="news/">News</a></li>
+          <li><a href="careers/">Careers</a></li>
+          <li><a href="contact/" class="button primary">Talk To An Expert</a></li>
+        </ul>
       </nav>
     </div>
   </header>
@@ -245,24 +246,30 @@
         </div>
         <div>
           <h4>Company</h4>
-          <a href="about/">About</a><br>
-          <a href="careers/">Careers</a><br>
-          <a href="news/">News</a><br>
-          <a href="https://www.linkedin.com/company/keenstack/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <ul class="footer-links">
+            <li><a href="about/">About</a></li>
+            <li><a href="careers/">Careers</a></li>
+            <li><a href="news/">News</a></li>
+            <li><a href="https://www.linkedin.com/company/keenstack/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
         </div>
         <div>
           <h4>Services</h4>
-          <a href="services/">Plan</a><br>
-          <a href="services/">Build</a><br>
-          <a href="services/">Run</a><br>
-          <a href="services/">Improve</a>
+          <ul class="footer-links">
+            <li><a href="services/">Plan</a></li>
+            <li><a href="services/">Build</a></li>
+            <li><a href="services/">Run</a></li>
+            <li><a href="services/">Improve</a></li>
+          </ul>
         </div>
         <div>
           <h4>Contact</h4>
-          <a href="contact/">Contact</a><br>
-          <a href="mailto:hello@keenstack.com">hello@keenstack.com</a><br>
-          <a href="mailto:careers@keenstack.com">careers@keenstack.com</a><br>
-          <a href="partners/">Partners</a>
+          <ul class="footer-links">
+            <li><a href="contact/">Contact</a></li>
+            <li><a href="mailto:hello@keenstack.com">hello@keenstack.com</a></li>
+            <li><a href="mailto:careers@keenstack.com">careers@keenstack.com</a></li>
+            <li><a href="partners/">Partners</a></li>
+          </ul>
         </div>
       </div>
       <div class="footer-note">© 2024 KeenStack. All rights reserved.</div>
