@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="icon" href="assets/img/keenstack-logo.svg">
+  <link rel="icon" href="assets/img/keenstack-logo.svg" type="image/svg+xml">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -43,7 +43,7 @@
     <section class="hero section scroll-anim">
       <div class="container text-center">
         <!-- Abstract 404 SVG -->
-        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 32px; display: block;">
+        <svg class="hero-illustration" width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
           <circle cx="100" cy="100" r="90" stroke="#E2E6EA" stroke-width="4" stroke-dasharray="10 10" opacity="0.5">
             <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="60s" repeatCount="indefinite"/>
           </circle>
@@ -58,8 +58,8 @@
 
         <p class="eyebrow">404 - Page Not Found</p>
         <h1>We could not find that page.</h1>
-        <p class="lead measure" style="margin-left: auto; margin-right: auto;">The page you're looking for may have been moved, deleted, or doesn't exist. Let's get you back on track.</p>
-        <div class="grid three spacer-md" style="max-width: 600px; margin: 32px auto;">
+        <p class="lead measure center">The page you're looking for may have been moved, deleted, or doesn't exist. Let's get you back on track.</p>
+        <div class="grid three spacer-xl narrow">
           <div class="card">
             <h3>Home</h3>
             <a class="button secondary" href="index.html">Go Home</a>

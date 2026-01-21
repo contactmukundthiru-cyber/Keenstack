@@ -115,27 +115,55 @@
 
   // FAQ accordion
   var faqItems = document.querySelectorAll('[data-faq-item]');
-  faqItems.forEach(function (item) {
+  faqItems.forEach(function (item, index) {
     var trigger = item.querySelector('[data-faq-trigger]');
+    var answer = item.querySelector('.faq-answer');
     if (!trigger) return;
-    
-    // Make trigger keyboard accessible
-    trigger.setAttribute('role', 'button');
-    trigger.setAttribute('tabindex', '0');
-    trigger.setAttribute('aria-expanded', 'false');
-    
-    var toggleFaq = function () {
-      var isActive = item.classList.toggle('active');
-      trigger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-    };
-    
-    trigger.addEventListener('click', toggleFaq);
-    trigger.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleFaq();
+
+    // Prefer real buttons, but support legacy div triggers.
+    var isButton = trigger.tagName && trigger.tagName.toLowerCase() === 'button';
+    if (!isButton) {
+      trigger.setAttribute('role', 'button');
+      trigger.setAttribute('tabindex', '0');
+    }
+
+    // Wire up ARIA relationships when possible.
+    if (answer) {
+      if (!trigger.id) {
+        trigger.id = 'faq-q-' + (index + 1);
       }
-    });
+      if (!answer.id) {
+        answer.id = 'faq-a-' + (index + 1);
+      }
+      trigger.setAttribute('aria-controls', answer.id);
+      answer.setAttribute('role', 'region');
+      answer.setAttribute('aria-labelledby', trigger.id);
+    }
+
+    function setFaqExpanded(isExpanded) {
+      item.classList.toggle('active', isExpanded);
+      trigger.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+      if (answer) {
+        answer.setAttribute('aria-hidden', isExpanded ? 'false' : 'true');
+      }
+    }
+
+    // Initialize state
+    setFaqExpanded(item.classList.contains('active'));
+
+    var toggleFaq = function () {
+      setFaqExpanded(!item.classList.contains('active'));
+    };
+
+    trigger.addEventListener('click', toggleFaq);
+    if (!isButton) {
+      trigger.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleFaq();
+        }
+      });
+    }
   });
 
   // Smooth scroll for anchor links
@@ -204,12 +232,22 @@
     lazyImages.forEach(function (img) {
       imageObserver.observe(img);
     });
+  } else {
+    // Very old browsers: don't hide images; mark as loaded.
+    var fallbackImages = document.querySelectorAll('img[loading="lazy"], img[data-src]');
+    fallbackImages.forEach(function (img) {
+      if (img.dataset && img.dataset.src) {
+        img.src = img.dataset.src;
+      }
+      img.classList.add('loaded');
+    });
   }
 
   // Form validation and handling
   var forms = document.querySelectorAll('form');
   forms.forEach(function (form) {
     var inputs = form.querySelectorAll('input, textarea, select');
+    var statusEl = form.querySelector('[data-form-status]');
     
     inputs.forEach(function (input) {
       // Real-time validation feedback
@@ -234,13 +272,63 @@
 
       if (!isValid) {
         e.preventDefault();
+        if (statusEl) {
+          statusEl.classList.remove('success');
+          statusEl.classList.add('error');
+          statusEl.textContent = 'Please review the highlighted fields and try again.';
+        }
         var firstError = form.querySelector('.error');
         if (firstError) {
           firstError.focus();
-          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          firstError.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
         }
       } else {
-        // Show loading state
+        // If this is a static site and the form action is a placeholder, use mailto fallback.
+        var action = (form.getAttribute('action') || '').trim();
+        var mailtoFallback = (form.getAttribute('data-mailto-fallback') || '').trim();
+        var isPlaceholderAction = !action || action === '#' || action.charAt(0) === '#';
+        if (isPlaceholderAction && mailtoFallback) {
+          e.preventDefault();
+          if (statusEl) {
+            statusEl.classList.remove('error');
+            statusEl.classList.add('success');
+            statusEl.textContent = 'Opening your email client to send the message…';
+          }
+
+          var payload = {};
+          inputs.forEach(function (input) {
+            var name = input.name || input.id;
+            if (!name) return;
+            payload[name] = (input.value || '').trim();
+          });
+
+          var subject = 'KeenStack inquiry';
+          if (payload.name) subject += ' from ' + payload.name;
+
+          var lines = [];
+          if (payload.name) lines.push('Name: ' + payload.name);
+          if (payload.email) lines.push('Email: ' + payload.email);
+          if (payload.company) lines.push('Company: ' + payload.company);
+          if (payload.interest) lines.push('Interest: ' + payload.interest);
+          lines.push('');
+          lines.push(payload.message ? payload.message : '(No message provided)');
+
+          var mailto = 'mailto:' + encodeURIComponent(mailtoFallback) +
+            '?subject=' + encodeURIComponent(subject) +
+            '&body=' + encodeURIComponent(lines.join('\n'));
+
+          // Avoid keeping the form in a disabled "loading" state for mailto.
+          var submitBtn = form.querySelector('button[type="submit"]');
+          if (submitBtn) {
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+          }
+
+          window.location.href = mailto;
+          return;
+        }
+
+        // Show loading state for real POST actions
         var submitButton = form.querySelector('button[type="submit"]');
         if (submitButton) {
           submitButton.classList.add('loading');
@@ -316,7 +404,7 @@
       if (main) {
         e.preventDefault();
         main.focus();
-        main.scrollIntoView({ behavior: 'smooth' });
+        main.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
       }
     }
   });

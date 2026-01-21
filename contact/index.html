@@ -13,7 +13,10 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://keenstack.com/contact/">
   <link rel="canonical" href="https://keenstack.com/contact/">
+  <link rel="preload" href="../assets/img/contact-hero.jpg" as="image" fetchpriority="high">
   <meta property="og:image" content="https://keenstack.com/assets/img/contact-hero.jpg">
+  <meta property="og:image:width" content="300">
+  <meta property="og:image:height" content="200">
   <meta property="og:image:alt" content="Contact visual">
   <meta property="og:site_name" content="KeenStack">
   <meta property="og:locale" content="en_US">
@@ -21,13 +24,14 @@
   <meta name="twitter:title" content="Contact KeenStack">
   <meta name="twitter:description" content="Start a conversation with KeenStack.">
   <meta name="twitter:image" content="https://keenstack.com/assets/img/contact-hero.jpg">
+  <meta name="twitter:image:alt" content="Contact visual">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="../assets/css/styles.css" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <link rel="icon" href="../assets/img/keenstack-logo.svg">
+  <link rel="icon" href="../assets/img/keenstack-logo.svg" type="image/svg+xml">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -92,7 +96,7 @@
             <a class="button secondary" href="../careers/">Careers</a>
           </div>
         </div>
-        <form class="card form-card" method="post" action="#" novalidate>
+        <form class="card form-card" method="post" action="#" novalidate data-mailto-fallback="hello@keenstack.com">
           <div class="form-grid">
             <div class="input-group">
               <input id="name" name="name" type="text" required aria-required="true" autocomplete="name" placeholder=" ">
@@ -120,6 +124,7 @@
               <textarea id="message" name="message" rows="5" aria-label="Your message" placeholder=" "></textarea>
               <label for="message">Message</label>
             </div>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
             <button class="button primary" type="submit" aria-label="Submit contact form">Submit Inquiry</button>
           </div>
         </form>
@@ -153,6 +158,7 @@
             <li><a href="../about/">About</a></li>
             <li><a href="../careers/">Careers</a></li>
             <li><a href="../news/">News</a></li>
+            <li><a href="https://www.linkedin.com/company/keenstack/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
         </div>
         <div>
@@ -168,6 +174,8 @@
           <h4>Contact</h4>
           <ul class="footer-links">
             <li><a href="../contact/">Contact</a></li>
+            <li><a href="mailto:hello@keenstack.com">hello@keenstack.com</a></li>
+            <li><a href="mailto:careers@keenstack.com">careers@keenstack.com</a></li>
             <li><a href="../partners/">Partners</a></li>
           </ul>
         </div>

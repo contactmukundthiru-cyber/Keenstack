@@ -13,7 +13,10 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://keenstack.com/services/">
   <link rel="canonical" href="https://keenstack.com/services/">
+  <link rel="preload" href="../assets/img/services-hero.png" as="image" fetchpriority="high">
   <meta property="og:image" content="https://keenstack.com/assets/img/services-hero.png">
+  <meta property="og:image:width" content="768">
+  <meta property="og:image:height" content="300">
   <meta property="og:image:alt" content="ServiceNow consulting visual">
   <meta property="og:site_name" content="KeenStack">
   <meta property="og:locale" content="en_US">
@@ -21,13 +24,14 @@
   <meta name="twitter:title" content="KeenStack Services">
   <meta name="twitter:description" content="ServiceNow consulting across the full lifecycle.">
   <meta name="twitter:image" content="https://keenstack.com/assets/img/services-hero.png">
+  <meta name="twitter:image:alt" content="ServiceNow consulting visual">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="../assets/css/styles.css" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <link rel="icon" href="../assets/img/keenstack-logo.svg">
+  <link rel="icon" href="../assets/img/keenstack-logo.svg" type="image/svg+xml">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -82,7 +86,7 @@
     <section class="section scroll-anim">
       <div class="container grid two">
         <div class="card neumorphic service-card">
-          <div class="card-title"><img src="../assets/img/icon-chart.svg" alt="Plan icon" decoding="async" loading="lazy" aria-hidden="true">Plan</div>
+          <div class="card-title"><img src="../assets/img/icon-chart.svg" alt="" width="22" height="22" decoding="async" loading="lazy" aria-hidden="true">Plan</div>
           <p class="muted">Who it is for</p>
           <p>Leaders defining the ServiceNow roadmap, governance, and AI readiness.</p>
           <p class="muted">What is included</p>
@@ -92,7 +96,7 @@
           <a class="button secondary" href="../contact/">Schedule A Strategy Session</a>
         </div>
         <div class="card neumorphic service-card">
-          <div class="card-title"><img src="../assets/img/icon-gear.svg" alt="Build icon" decoding="async" loading="lazy" aria-hidden="true">Build</div>
+          <div class="card-title"><img src="../assets/img/icon-gear.svg" alt="" width="22" height="22" decoding="async" loading="lazy" aria-hidden="true">Build</div>
           <p class="muted">Who it is for</p>
           <p>Teams implementing new workflows, apps, and integrations.</p>
           <p class="muted">What is included</p>
@@ -104,7 +108,7 @@
       </div>
       <div class="container grid two spacer-md">
         <div class="card neumorphic service-card">
-          <div class="card-title"><img src="../assets/img/icon-controls.svg" alt="Run icon" decoding="async" loading="lazy" aria-hidden="true">Run</div>
+          <div class="card-title"><img src="../assets/img/icon-controls.svg" alt="" width="22" height="22" decoding="async" loading="lazy" aria-hidden="true">Run</div>
           <p class="muted">Who it is for</p>
           <p>Operations teams maintaining stability and adoption.</p>
           <p class="muted">What is included</p>
@@ -114,7 +118,7 @@
           <a class="button secondary" href="../contact/">Discuss Managed Services</a>
         </div>
         <div class="card neumorphic service-card">
-          <div class="card-title"><img src="../assets/img/icon-light.svg" alt="Improve icon" decoding="async" loading="lazy" aria-hidden="true">Improve</div>
+          <div class="card-title"><img src="../assets/img/icon-light.svg" alt="" width="22" height="22" decoding="async" loading="lazy" aria-hidden="true">Improve</div>
           <p class="muted">Who it is for</p>
           <p>Teams optimizing automation and adoption over time.</p>
           <p class="muted">What is included</p>
@@ -156,38 +160,38 @@
         <p class="eyebrow">FAQ</p>
         <h2>Common questions</h2>
         <div class="faq-item" data-faq-item>
-          <div class="faq-question" data-faq-trigger>
+          <button class="faq-question" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">
             <span>Can you work with existing ServiceNow teams?</span>
-            <span>+</span>
-          </div>
-          <div class="faq-answer">
+            <span aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-a-1" role="region" aria-labelledby="faq-q-1" aria-hidden="true">
             <p>Yes, KeenStack collaborates with internal teams, providing strategy, delivery support, and managed services as needed.</p>
           </div>
         </div>
         <div class="faq-item" data-faq-item>
-          <div class="faq-question" data-faq-trigger>
+          <button class="faq-question" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">
             <span>Do you offer AI enablement on ServiceNow?</span>
-            <span>+</span>
-          </div>
-          <div class="faq-answer">
+            <span aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-a-2" role="region" aria-labelledby="faq-q-2" aria-hidden="true">
             <p>Yes, we embed AI enablement into workflow design, governance, and optimization programs.</p>
           </div>
         </div>
         <div class="faq-item" data-faq-item>
-          <div class="faq-question" data-faq-trigger>
+          <button class="faq-question" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">
             <span>How do we start?</span>
-            <span>+</span>
-          </div>
-          <div class="faq-answer">
+            <span aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-a-3" role="region" aria-labelledby="faq-q-3" aria-hidden="true">
             <p>Begin with a discovery session to align on goals and define a focused roadmap.</p>
           </div>
         </div>
         <div class="faq-item" data-faq-item>
-          <div class="faq-question" data-faq-trigger>
+          <button class="faq-question" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">
             <span>What industries do you specialize in?</span>
-            <span>+</span>
-          </div>
-          <div class="faq-answer">
+            <span aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-a-4" role="region" aria-labelledby="faq-q-4" aria-hidden="true">
             <p>We focus on healthcare and public sector outcomes with ServiceNow-native workflows built for regulated environments.</p>
           </div>
         </div>
@@ -221,6 +225,7 @@
             <li><a href="../about/">About</a></li>
             <li><a href="../careers/">Careers</a></li>
             <li><a href="../news/">News</a></li>
+            <li><a href="https://www.linkedin.com/company/keenstack/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
         </div>
         <div>
@@ -237,6 +242,7 @@
           <ul class="footer-links">
             <li><a href="../contact/">Contact</a></li>
             <li><a href="mailto:hello@keenstack.com">hello@keenstack.com</a></li>
+            <li><a href="mailto:careers@keenstack.com">careers@keenstack.com</a></li>
             <li><a href="../partners/">Partners</a></li>
           </ul>
         </div>
