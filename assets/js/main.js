@@ -10,10 +10,47 @@
     prefersReducedMotion = false;
   }
 
+  // Page theme (used by CSS for accents)
+  function setPageTheme() {
+    if (!document.body) return;
+    var path = (window.location && window.location.pathname ? window.location.pathname : '').toLowerCase();
+    var theme = 'home';
+
+    if (path.indexOf('/services') !== -1) theme = 'services';
+    else if (path.indexOf('/industries') !== -1) theme = 'industries';
+    else if (path.indexOf('/products') !== -1) theme = 'products';
+    else if (path.indexOf('/partners') !== -1) theme = 'partners';
+    else if (path.indexOf('/news') !== -1) theme = 'news';
+    else if (path.indexOf('/careers') !== -1) theme = 'careers';
+    else if (path.indexOf('/contact') !== -1) theme = 'contact';
+    else if (path.indexOf('/about') !== -1) theme = 'about';
+    else if (path.indexOf('404') !== -1) theme = 'utility';
+
+    document.body.classList.add('theme-' + theme);
+  }
+
+  setPageTheme();
+
   // Navigation toggle
   var navToggle = document.querySelector('[data-nav-toggle]');
   var navLinks = document.querySelector('[data-nav-links]');
   var navbar = document.querySelector('.navbar');
+  var navBackdrop = null;
+
+  function ensureNavBackdrop() {
+    if (navBackdrop) return navBackdrop;
+    navBackdrop = document.querySelector('.nav-backdrop');
+    if (!navBackdrop) {
+      navBackdrop = document.createElement('div');
+      navBackdrop.className = 'nav-backdrop';
+      navBackdrop.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(navBackdrop);
+    }
+    navBackdrop.addEventListener('click', function () {
+      if (isNavOpen()) closeNav({ returnFocus: false });
+    });
+    return navBackdrop;
+  }
 
   function isNavOpen() {
     return !!(navLinks && navLinks.classList.contains('open'));
@@ -23,6 +60,14 @@
     if (!navLinks || !navToggle) return;
     navLinks.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-open');
+    try {
+      var labelSpan = navToggle.querySelector('span[aria-hidden="true"]');
+      if (labelSpan) labelSpan.textContent = 'Menu';
+      navToggle.setAttribute('aria-label', 'Toggle navigation menu');
+    } catch (e) {
+      // ignore
+    }
     if (options && options.returnFocus) {
       navToggle.focus();
     }
@@ -30,8 +75,17 @@
 
   function openNav() {
     if (!navLinks || !navToggle) return;
+    ensureNavBackdrop();
     navLinks.classList.add('open');
     navToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('nav-open');
+    try {
+      var labelSpan = navToggle.querySelector('span[aria-hidden="true"]');
+      if (labelSpan) labelSpan.textContent = 'Close';
+      navToggle.setAttribute('aria-label', 'Close navigation menu');
+    } catch (e) {
+      // ignore
+    }
     var firstLink = navLinks.querySelector('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
     if (firstLink) {
       firstLink.focus();

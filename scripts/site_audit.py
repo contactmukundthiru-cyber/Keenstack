@@ -109,8 +109,15 @@ class AuditParser(HTMLParser):
 def iter_html_files() -> List[Path]:
     files = []
     for p in ROOT.rglob("*.html"):
-        # skip obvious non-site directories if ever added
-        if "/.git/" in p.as_posix():
+        # skip obvious non-site directories
+        posix = p.as_posix()
+        if "/.git/" in posix:
+            continue
+        if "/node_modules/" in posix:
+            continue
+        if "/.playwright-screenshots/" in posix:
+            continue
+        if "/.screenshots/" in posix:
             continue
         files.append(p)
     return sorted(files)
